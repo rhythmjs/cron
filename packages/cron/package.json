@@ -1,0 +1,48 @@
+{
+  "name": "@rhythmjs/cron",
+  "version": "0.0.1",
+  "description": "Bun-native cron for Rhythm: a pipeline of named jobs scheduled with Bun.cron, with Rhythm middleware around every run, start/stop tied to the app's lifecycle, and no scheduler of its own.",
+  "keywords": [
+    "bun",
+    "cron",
+    "rhythm",
+    "schedule"
+  ],
+  "homepage": "https://rhythm.js.org/cron",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhythmjs/cron.git",
+    "directory": "packages/cron"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/rhythm-cron.d.ts",
+      "default": "./dist/rhythm-cron.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist && bun build src/rhythm-cron.ts --outdir dist --root src --format esm --target bun --packages external && tsc -p tsconfig.build.json",
+    "prepublishOnly": "bun run typecheck && bun test && bun run build",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@rhythmjs/rhythm": "^0.0.20"
+  },
+  "peerDependencies": {
+    "@rhythmjs/rhythm": ">=0.0.20"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  }
+}
