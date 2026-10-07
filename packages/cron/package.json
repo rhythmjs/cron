@@ -1,6 +1,6 @@
 {
   "name": "@rhythmjs/cron",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Bun-native cron for Rhythm: a pipeline of named jobs scheduled with Bun.cron, with Rhythm middleware around every run, start/stop tied to the app's lifecycle, and no scheduler of its own.",
   "keywords": [
     "bun",
@@ -31,13 +31,15 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf dist && bun build src/rhythm-cron.ts --outdir dist --root src --format esm --target bun --packages external && tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "prebuild": "bun run clean",
+    "build": "bun build src/rhythm-cron.ts --outdir dist --root src --format esm --target bun --packages external && tsc -p tsconfig.build.json",
     "prepublishOnly": "bun run typecheck && bun test && bun run build",
     "typecheck": "tsc --noEmit",
     "test": "bun test"
   },
   "devDependencies": {
-    "@rhythmjs/rhythm": "^0.0.20"
+    "@rhythmjs/rhythm": "^0.0.21"
   },
   "peerDependencies": {
     "@rhythmjs/rhythm": ">=0.0.20"

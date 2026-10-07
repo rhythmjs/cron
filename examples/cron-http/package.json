@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@rhythmjs/cron": "workspace:*",
-    "@rhythmjs/rhythm": "^0.0.20",
-    "@rhythmjs/router": "^0.0.20"
+    "@rhythmjs/rhythm": "^0.0.21",
+    "@rhythmjs/router": "^0.0.21"
   }
 }

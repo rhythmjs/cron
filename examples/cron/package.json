@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "@rhythmjs/cron": "workspace:*",
-    "@rhythmjs/rhythm": "^0.0.20"
+    "@rhythmjs/rhythm": "^0.0.21"
   }
 }
